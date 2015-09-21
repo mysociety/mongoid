@@ -176,7 +176,10 @@ module Mongoid
             attribute_will_change!(access)
           end
           if localized
+            # attributes[access] ||= {}
+            # attributes[access].merge!(typed_value)
             (attributes[access] ||= {}).merge!(typed_value)
+            puts attributes[access]
           else
             attributes[access] = typed_value
           end
